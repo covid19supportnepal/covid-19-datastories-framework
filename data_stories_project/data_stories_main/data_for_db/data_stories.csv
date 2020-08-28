@@ -1,0 +1,26 @@
+infoName, infoIntro, infoMiddle, infoEnd, infoExtra,modify
+"Your Mask Matters!","Wearing masks is pivotal and important. We all know this, however, as time wears on, we ourselves 
+get weary and forget their value. This can certainly be a problem, because the coronavirus isn't letting
+up anytime soon. Thus, we have created some easy to understand graphs that will display how a mask
+can change a country, and by extension, your life. We have found data from many people in the united 
+states who choose to wear masks or not, and then we compare this finding to states case
+numbers. This should showcase a clear relationship that masks are important, so the next time you forget
+one, remember, these numbers do not lie. You are risking your life, even if it seems non-trivial. Worse yet, 
+you are risking someone else's life. Check out this graph here:","As that data alludes to, wearing a mask is not something that can be debated. Why, 
+you may ask? Well, the bottom axis represents the State and the proportion of 'negative' responses to 'total responses' of people who want to
+wear masks or not. The higher the number, the worser the state. And the vertical axis represents the number of 'infected' divided by the number
+tested. As we can see, besides some outliers (unsafe states like Georgia who don't report very well, or DC), there is a general trend that the higher
+the ratio of poor behavior and bad choice, then the higher the ratio of cases that are positive/total number tested. However, we know that
+at this time, many are used to wearing masks more and more but getting tired of them. Thus, seeing these
+statistics may be inconsequential to you, even if they do reveal somethng powerful. You may think 'what is the point?'. Well, let's bring this closer 
+to home. It's often said that people take things more serious when mortality, or words associated with death come into play.
+Check out this data that we have gathered, which compares those mask wearing numbers to the deaths found 
+in those US Counties. And while data may be different, the virus remains the same around the world, so you can
+be sure it will affect Nepali lungs just as it affects the Californian lungs. See this data here:","So there you have it, you saw how Masks relate to both coronavirus cases, and to deaths. Don't forget, this directly links to you!
+You, your family, the friends you hang out with, those you come in contact with. It's all one giant network, and we rely on 
+each other. Don't forget to wear your mask! Here is one final data represetnation that we think does a nice job. It shows a complete
+set of information regarding wearing masks.","We hope this data visualization and information tool was helpful to you! Thank you for looking through it, and please
+take this advice and keep wearing your mask, even when you don't feel like doing so. I know it's been a long time, but
+this is very important.","1"
+test,tes1,tes2,tes3,tes4,0
+t,t,t,t,t,0

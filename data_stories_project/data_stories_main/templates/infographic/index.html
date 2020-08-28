@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>DataStory - MaskMatters</title>
+
+    <!-- Needed Javascript for Dynamic Graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <!-- Highcharts, another JS Option, used with jquery -->
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href=" {% static 'assets/css/bootstrap.min.css' %} " >
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href=" {% static 'assets/fonts/line-icons.css' %} ">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href=" {% static 'assets/css/slicknav.css' %} ">
+    <!-- Off Canvas Menu -->
+    <link rel="stylesheet" type="text/css" href=" {% static 'assets/css/menu_sideslide.css' %} ">
+    <!-- Color Switcher -->
+    <link rel="stylesheet" type="text/css" href=" {% static 'assets/css/vegas.min.css' %} ">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href=" {% static 'assets/css/animate.css' %} ">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href=" {% static 'assets/css/main.css' %} ">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href=" {% static 'assets/css/responsive.css' %} ">
+
+  </head>
+  <body>
+  
+    <!-- Intro Section Start -->
+    <section class="intro">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="heading-count">
+              <h2>{{datastory.infographicName}}</h2>
+              <br><br><br>
+              <p id ="info_intro">{{datastory.infographicIntro}}</p> <!-- can style to hearts content, see static/assets -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Intro Section End -->
+
+    <section id="services" class="section-padding" >
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-8 col-xs-12 text-center">
+            <!--Graph Here (Interactive)-->
+            
+            <div style = "resize:both;" id="container1" data-url="{% url 'data_stories_main:chart_one' %}"></div> <!-- this invokes a view -->
+            <script>
+              $.ajax({
+                url: $("#container1").attr("data-url"), //connects to the attr in the div above
+                dataType: 'json',
+                success: function (data) {
+                  Highcharts.chart("container1", data);
+                }
+              });
+            </script>
+
+            <!-- Graph 1 Complete -->
+            <h3 class="section-title">
+              {{datastory.infographicMiddle|slice:":20"}}
+            </h3>
+            <div class="section-info">
+              {{datastory.infographicMiddle|slice:"20:"}}
+            </div>
+          </div>            
+        </div>
+      </div>
+    </section>
+
+    <!-- 3rd Data Section Start -->
+    <section id="team" class="section-padding">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-8 col-xs-12 text-center">
+            <!--Graph Here (Interactive)-->
+            
+            <div id="container2" data-url="{% url 'data_stories_main:chart_two' %}"></div> <!-- this invokes a view -->
+            <script>
+              $.ajax({
+                url: $("#container2").attr("data-url"), //connects to the attr in the div above
+                dataType: 'json',
+                success: function (data) {
+                  Highcharts.chart("container2", data);
+                }
+              });
+            </script>
+
+            <!-- Graph 2 Complete -->
+
+            <h2 class="section-title">
+              {{datastory.infographicEnd|slice:":18"}}
+            </h2>
+            <div class="section-info">
+              {{datastory.infographicEnd|slice:"18:"}}
+            </div>
+          </div>            
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-3">
+            <!-- Can add more Data Infographic values here -->
+            <!-- Can add more Data Infographhic here -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 3rd Data Section End -->
+
+    <!-- Final Graph/Section  -->
+    <section id="contact" class="section-padding">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-8 col-xs-12 text-center">
+            <!--Graph Here (Interactive)-->
+            
+            <div id="container3" data-url="{% url 'data_stories_main:chart_three' %}"></div> <!-- this invokes a view -->
+            <script>
+              $.ajax({
+                url: $("#container3").attr("data-url"), //connects to the attr in the div above
+                dataType: 'json',
+                success: function (data) {
+                  Highcharts.chart("container3", data);
+                }
+              });
+            </script>
+
+            <!-- Graph 1 Complete -->
+
+            <h2 class="section-title">
+              {{datastory.infographicExtra|slice:":18"}}
+            </h2>
+            <div class="section-info">
+              {{datastory.infographicExtra|slice:"18:"}}
+            </div>
+          </div>            
+        </div>
+      </div>
+    </section>
+    <!-- Final Section End -->
+
+     <!-- Map Section Start -->
+    <section id="google-map-area">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div id="conatiner-map"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Map Section End -->
+
+    <!-- Footer Section Start -->
+    <footer class="footer-area section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Go to Top Link -->
+    <a href="#" class="back-to-top">
+      <i class="lni-chevron-up"></i>
+    </a>
+
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="loader" id="loader-1"></div>
+    </div>
+    <!-- End Preloader -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src=" {% static 'assets/js/jquery-min.js' %} "></script>
+    <script src=" {% static 'assets/js/popper.min.js' %} "></script>
+    <script src=" {% static 'assets/js/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'assets/js/vegas.min.js' %} "></script>
+    <script src=" {% static 'assets/js/jquery.countdown.min.js' %} "></script>
+    <script src=" {% static 'assets/js/menu.js' %} "></script>
+    <script src=" {% static 'assets/js/classie.js' %} "></script>
+    <script src=" {% static 'assets/js/scrolling-nav.js' %} "></script>
+    <script src=" {% static 'assets/js/jquery.nav.js' %} "></script>
+    <script src=" {% static 'assets/js/jquery.easing.min.js' %} "></script>
+    <script src=" {% static 'assets/js/wow.js' %} "></script>
+    <script src=" {% static 'assets/js/jquery.slicknav.js' %} "></script>
+    <script src=" {% static 'assets/js/main.js' %} "></script>
+    <script src=" {% static 'assets/js/form-validator.min.js' %} "></script>
+    <script src=" {% static 'assets/js/contact-form-script.min.js' %} "></script>
+    <script src=" {% static 'assets/js/map.js' %} "></script>
+    <script type="text/javascript" src=" {% static '//maps.googleapis.com/maps/api/js?key=AIzaSyCsa2Mi2HqyEcEnM1urFSIGEpvualYjwwM' %} ">
+    </script>
+      
+  </body>
+</html>

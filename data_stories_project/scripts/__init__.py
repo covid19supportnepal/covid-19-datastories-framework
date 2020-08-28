@@ -1,0 +1,1 @@
+"""Let's Django/Python know this is a part of everything"""
