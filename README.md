@@ -1,31 +1,33 @@
 # To Run
-Follow the quick guide (just the installation part - get django, and the tools needed via pip mentioned below)
+Follow the quick guide (just the installation part - get django, and the tools needed via pip mentioned below). ENSURE to make this 
+root file have a venv in it! 
 
 Go to the directory with manage.py
 Use 'python manage.py makemigrations'
-Then 'python manage.py migrate'
-Finally 'python manage.py runserver'
+Then 'python manage.py migrate' (if you played with code and changed anything/added things via my scripts)
+Finally 'python manage.py runserver' (note, only the third needs to be run for small changes in html/css/js, python chanes require the above 2)
 
-And your server should be live and this dynamically generated datastory should play at localhost::port (usually 8000)/infographic
+And your server should be live and this dynamically generated datastory should play at **localhost::port (usually 8000)/infographic**
 
-Note - this should be hosted on somewhere that allows django hosting (there are free options for this online).
+**Note - this should be hosted on somewhere that allows django hosting (there are free options for this online).**
 
 # Quick Guide
 
 This was all built in a quick, modular way due to limitations of time since I'm moving back to College this weekend. The purpose of this Django application is to:
-    - 'Ad-lib' text used in data stories (modularly add in text to any data story of any length with tiny changes)
+- 'Ad-lib' text used in data stories (modularly add in text to any data story of any length with tiny changes)
     - Use Python to take advantage of the full data analytics capabilities of it (since that's where we wanted data analysis, though JS is another option,
     python is better for most people)
     - Use Django's backend to have a powerful way to modularily serve graphs to the front end from backend analysis
     - Run non live scripts to do local backend data cleaning/parsing as needed.
 Ensure to have:
     - Django installed, in a virtual environment (python -m venv data_stories)
-        - Run this via ./Scripts/activate
+        - Run this via ./Scripts/activate to open the virtual environment
+        - Then install Django (pip install Django)
     - Ensure to have various pip tools installed.
-        - django-extensions - required for backend local scripting and database injections locally
-        - pandas + data analysis friends
-        - uszipcode (pyzipcode too) - these are not optimal but no better ones exist - required for the current 'mask' data story, at least for backend analysis.
-        - djangify - if you want to convert a future HTML page to a 'django' ready one.
+        - django-extensions - **required for backend local scripting and database injections locally**
+        - pandas + data analysis friends (numpy, scipy, etc.. - they all install with pip install pandas)
+        - uszipcode (pyzipcode too) - these are not optimal but no better ones exist - required for the current 'mask' data story, at least for backend analysis (local analysis)
+        - djangify - if you want to convert a future HTML page to a 'django' ready one (ie a NON django page - but you shouldn't and can just use the one I've made probably, and copy it, and edit it for the future - however should one want to convert a future one, this is needed)
     - Ensure to learn how Django works:
         - Templates = Pages served
         - Static = Served Pages static assets (including JS, CSS)
@@ -33,7 +35,7 @@ Ensure to have:
     Main Root = Venv file for python virtual space
         - data_stories_project = Main Django project root
             - manage.py = main django code entry point (python manage.py makemigrations, then python manage.py migrate, then python manage.py runserver
-            are the three main commands to start the service assuming the above is installed)
+            are the three main commands to start the service for the first time/after every change assuming the above is installed)
             - db.sqlite3 = default database that we use to hold 'data-story' items (stories)
                 - These are fed into via a Script found in 'scripts' in the DJANGO root (NOT in the VENV root), and use the 'models.py' found in our main app (data_stories_main)
                 - So if you want to make a NEW datastory, please add to the CSV file in data_stories_main/data_for_db/data_stories.csv, then run this script using python manage.py runscript (nameofscript without ending - in this case it's 'write_db' (don't use quotes in terminal))
@@ -145,4 +147,7 @@ These functions render to that html page so ensure that html page is properly sp
 ## Data Analysis
 
 And that's it! This adds a new very different data story, without much changes. Of course, the 'most fun' part on this is to parse the new data, and you can do that in the code you write in the 'data_reading' directory! I have one example, which does local parsing of data, and then creates the javascript ready charts for highchart. Feel free to make your own class/package/whatver to do any parsing, even push to the database, etc... and then use that to power the graphs! This MUST be what is used in the view.py above (or in any organiztion you make it). This will allow for the website to get the JSON as it expects it. If you change HighCharts, modify the HTML javascript module, and also ensure the JsonResponse object created in your data parsing modules and given the functions in the 'views.py' modules are also matching the new chart making tool! I keep all my datasets in the datasets directory in the root of the django folder - again, feel free to modify, but that is for local development and data parsing/cleaning.
+
+### Framework Creation and Support
+This framework was created by Arpan Kaphle, who volunteered with covid19supportnepal during the end of summer 2020. I wish future developers the best of luck as we hopefully get out of this pandemic soon, and am appreciative of covid19supportnepal, as well as all of you guys who are helping get information out to people! Feel free to contact me via the email covid19supportnepal has on hand for any future questions. I wrote this over the course of a few hours prior to returning to university, so I know this readme is rushed (and the code, while attempted to be modular to future data stories, may look rushed but hopefully good enough to use!).
 
